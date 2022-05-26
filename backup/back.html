@@ -1,0 +1,130 @@
+{{FrontSide}} {{#Tags}}
+
+<div class="h1 red redleft wordwrap">[Tags] {{Tags}}</div>
+{{/Tags}} {{#Mindmap}}
+<hr />
+<div class="slide">
+  <div class="h1 green greenleft">
+    <span class="greenimg"
+      ><img src="_space.png" height="24" width="24"
+    /></span>
+    Mindmap
+  </div>
+  <div class="h2 greenleft">
+    <svg id="mindmapgraph"></svg>
+    <div id="mindmaptext" hidden>{{Mindmap}}</div>
+  </div>
+</div>
+{{/Mindmap}} {{#Answer}}
+<hr />
+<div class="slide">
+  <div class="h1 pink pinkleft">
+    <span class="pinkimg"><img src="_space.png" height="24" width="24" /></span>
+    Answer
+  </div>
+  <div class="h2 pinkleft wordwrap">{{Answer}}</div>
+</div>
+{{/Answer}} {{#Detail}}
+<hr />
+<div class="slide">
+  <div class="h1 purple purpleleft">
+    <span class="purpleimg"
+      ><img src="_space.png" height="24" width="24"
+    /></span>
+    Detail
+  </div>
+  <div class="h2 purpleleft wordwrap">{{hint:Detail}}</div>
+</div>
+{{/Detail}} {{#Code}}
+<hr />
+<div class="slide">
+  <div class="h1 blue blueleft">
+    <span class="blueimg"><img src="_space.png" height="24" width="24" /></span>
+    Code
+  </div>
+
+  <div class="h2 blueleft code wordwrap">{{Code}}</div>
+</div>
+{{/Code}}
+
+<script>
+  const ResourceType = {
+    js: 1,
+    css: 2,
+  };
+  loadResource("_d3@6.js", "https://cdn.jsdelivr.net/npm/d3@6", ResourceType.js)
+    .then(() =>
+      loadResource(
+        "_markmap-lib.js",
+        "https://cdn.jsdelivr.net/npm/markmap-lib",
+        ResourceType.js
+      )
+    )
+    .then(() =>
+      loadResource(
+        "_markmap-view.js",
+        "https://cdn.jsdelivr.net/npm/markmap-view",
+        ResourceType.js
+      )
+    )
+    .then(render)
+    .catch(show);
+
+  function loadResource(path, altURL, resourceType) {
+    let load = function (isLocal, resolve, reject) {
+      let resource =
+        resourceType === ResourceType.js
+          ? document.createElement("script")
+          : document.createElement("link");
+      if (resourceType === ResourceType.css) {
+        resource.setAttribute("rel", "stylesheet");
+        resource.type = "text/css";
+      }
+      resource.onload = resolve;
+      resource.src = isLocal ? path : altURL;
+      resource.onerror = isLocal
+        ? function () {
+            load(false, resolve, reject);
+          }
+        : reject;
+      document.head.appendChild(resource);
+    };
+    return new Promise((resolve, reject) => {
+      load(true, resolve, reject);
+    });
+  }
+
+  function render() {
+    mindmap("mindmaptext");
+    show();
+  }
+
+  function show() {
+    document.getElementById("mindmapgraph").style.visibility = "visible";
+  }
+
+  function mindmap(ID) {
+    let text = escapeHTMLChars(document.getElementById(ID).innerHTML);
+    const { Markmap, loadCSS, loadJS, Transformer } = window.markmap;
+    var transformer = new Transformer();
+    const { root, features } = transformer.transform(text);
+    const { styles, scripts } = transformer.getUsedAssets(features);
+    if (styles) loadCSS(styles);
+    if (scripts) loadJS(scripts, { getMarkmap: () => window.markmap });
+    Markmap.create("#mindmapgraph", null, root);
+  }
+  function escapeHTMLChars(str) {
+    return str
+      .replace(/<[\/]?pre[^>]*>/gi, "")
+      .replace(/<br\s*[\/]?[^>]*>/gi, "\n")
+      .replace(/<br\s*[\/]?[^>]*>/gi, "\n")
+      .replace(/<div[^>]*>/gi, "")
+      .replace(/<[\/]?span[^>]*>/gi, "")
+      .replace(/<\/div[^>]*>/gi, "\n")
+      .replace(/&nbsp;/gi, " ")
+      .replace(/&tab;/gi, "	")
+      .replace(/&gt;/gi, ">")
+      .replace(/&lt;/gi, "<")
+      .replace(/&amp;/gi, "&");
+  }
+</script>

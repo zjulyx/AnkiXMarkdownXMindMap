@@ -1,0 +1,155 @@
+
+  @font-face {
+    font-family: "Cascadia Code";
+    src: url("_CascadiaCode.ttf");
+  }
+  .card {
+    font: 20px/30px yh;
+    background-color: white;
+    text-align: left;
+  }
+  
+  .h1 {
+    font: 22px/22px yh;
+    padding: 0.3em 0em 0.3em 0.5em;
+    font-family: "Cascadia Code", "Consolas", Overpass, "GlowSansSC", "Helvetica Neue",
+      "pingfang sc", "microsoft yahei", sans-serif;
+  }
+  .h2 {
+    font: 20px/30px yh;
+    padding: 0.3em 0em 0.3em 0.5em;
+    font-family: "Cascadia Code", "Consolas", Overpass, "GlowSansSC", "Helvetica Neue",
+      "pingfang sc", "microsoft yahei", sans-serif;
+  }
+  
+  code {
+    font-family: "Cascadia Code", "Courier New", "Consolas", Overpass,
+      "GlowSansSC", "Helvetica Neue", "pingfang sc", "microsoft yahei", sans-serif;
+  }
+  
+  .redleft {
+    border-left: 3px solid #ec6c4f;
+  }
+  .blueleft {
+    border-left: 3px solid #338eca;
+  }
+  .pinkleft {
+    border-left: 3px solid #d4237a;
+  }
+  .greenleft {
+    border-left: 3px solid #9acd32;
+  }
+  .purpleleft {
+    border-left: 3px solid #594d9c;
+  }
+  
+  .code {
+    background-color: #414141;
+    font-family: "Cascadia Code", "Consolas", Overpass, "GlowSansSC",
+      "Helvetica Neue", "pingfang sc", "microsoft yahei", sans-serif;
+  }
+  
+  .wordwrap {
+    display: block;
+    word-wrap: break-word;
+  }
+  
+  .red {
+    color: #ec6c4f;
+  }
+  .blue {
+    color: #338eca;
+  }
+  .green {
+    color: #9acd32;
+  }
+  .pink {
+    color: #d4237a;
+  }
+  .purple {
+    color: #594d9c;
+  }
+  
+  .redimg {
+    background: url(_red-day.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .blueimg {
+    background: url(_blue-day.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .pinkimg {
+    background: url(_pink-day.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .greenimg {
+    background: url(_green-day.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .purpleimg {
+    background: url(_purple-day.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .hint {
+    color: black;
+  }
+  
+  a {
+    color: #666;
+  }
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+  .chrome img {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+  ul,
+  ol {
+    margin-top: 0em;
+  }
+  li {
+    margin-left: -0.5em;
+  }
+  i {
+    padding: 0 3px 0 0;
+  }
+  u {
+    text-decoration: none;
+    background-color: #ffff75;
+    border-bottom: 2px solid #ec6c4f;
+  }
+  hr {
+    height: 1px;
+    width: 100%;
+    display: block;
+    border: 0px solid #fff;
+    margin: 5px 0px 10px 0px;
+    background-color: #ccc;
+  }
+  
+  #answer, #mindmapgraph {
+      visibility: hidden;
+  }
+
+  #mindmapgraph{
+    height: 50vh;
+    width: 95vw;
+  }
+  
+  .markmap-foreign {
+    font: 16px/20px "Cascadia Code", "Consolas", Overpass, "GlowSansSC", "Helvetica Neue",
+      "pingfang sc", "microsoft yahei", sans-serif;
+  }
