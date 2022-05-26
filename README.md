@@ -30,9 +30,21 @@
 ## 💡 Usage
 
 1. Install Anki 🤣
-2. Install this addon (<!-- TODO number -->) 😘
+2. Install this addon ([728482867](https://ankiweb.net/shared/info/728482867)) 😘
 3. Change template to "**Anki X Markdown X MindMap**" 😎
-4. Create new card and enjoy it 😁
+4. Create new cards and enjoy it 😁
+
+## Sample
+
+### Editor
+
+![Editor](https://user-images.githubusercontent.com/11550778/170462330-80487bf7-2cff-41be-b054-88f23e12d33f.png)
+
+======>
+
+### Preview
+
+![Preview](https://user-images.githubusercontent.com/11550778/170462384-31f84f81-5298-400b-befa-54c924742167.png)
 
 ## 🏆 Credits
 
