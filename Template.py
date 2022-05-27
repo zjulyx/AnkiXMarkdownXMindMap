@@ -75,7 +75,7 @@ BACK = """
 {{/Code}}
 
 <script>
-  const ResourceType = {
+  var ResourceType = {
     js: 1,
     css: 2,
   };
@@ -145,9 +145,15 @@ BACK = """
       .replace(/<[\/]?pre[^>]*>/gi, "")
       .replace(/<br\s*[\/]?[^>]*>/gi, "\\n")
       .replace(/<br\s*[\/]?[^>]*>/gi, "\\n")
-      .replace(/<div[^>]*>/gi, "")
       .replace(/<[\/]?span[^>]*>/gi, "")
+      .replace(/<ol[^>]*>/gi, "")
+      .replace(/<\/ol[^>]*>/gi, "\\n")
+      .replace(/<ul[^>]*>/gi, "")
+      .replace(/<\/ul[^>]*>/gi, "\\n")
+      .replace(/<div[^>]*>/gi, "")
       .replace(/<\/div[^>]*>/gi, "\\n")
+      .replace(/<li[^>]*>/gi, "- ")
+      .replace(/<\/li[^>]*>/gi, "")
       .replace(/&nbsp;/gi, " ")
       .replace(/&tab;/gi, "	")
       .replace(/&gt;/gi, ">")
