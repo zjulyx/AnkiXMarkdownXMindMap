@@ -285,8 +285,8 @@ CSS = """
   ol {
     margin-top: 0em;
   }
-  li {
-    margin-left: -0.5em;
+  ul li {
+    margin-left: -0.9em;
   }
   i {
     padding: 0 3px 0 0;

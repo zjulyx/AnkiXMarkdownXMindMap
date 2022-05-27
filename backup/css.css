@@ -120,8 +120,8 @@
   ol {
     margin-top: 0em;
   }
-  li {
-    margin-left: -0.5em;
+  ul li {
+    margin-left: -0.9em;
   }
   i {
     padding: 0 3px 0 0;
@@ -139,6 +139,11 @@
     margin: 5px 0px 10px 0px;
     background-color: #ccc;
   }
+  
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
   
   #answer, #mindmapgraph {
       visibility: hidden;
