@@ -153,7 +153,7 @@ BACK = """
       .replace(/<div[^>]*>/gi, "")
       .replace(/<\/div[^>]*>/gi, "\\n")
       .replace(/<li[^>]*>/gi, "- ")
-      .replace(/<\/li[^>]*>/gi, "")
+      .replace(/<\/li[^>]*>/gi, "\\n")
       .replace(/&nbsp;/gi, " ")
       .replace(/&tab;/gi, "	")
       .replace(/&gt;/gi, ">")
