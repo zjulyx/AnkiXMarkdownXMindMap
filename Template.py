@@ -131,6 +131,10 @@ BACK = """
   }
 
   function mindmap(ID) {
+    if (document.getElementById("mindmapgraph").children.length === 2) {
+      // Already created graph, directly return
+      return;
+    }
     let text = escapeHTMLChars(document.getElementById(ID).innerHTML);
     const { Markmap, loadCSS, loadJS, Transformer } = window.markmap;
     var transformer = new Transformer();
