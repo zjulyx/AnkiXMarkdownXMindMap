@@ -1,17 +1,35 @@
 EDITOR = """
-var fields = document.getElementById("fields").children;
 var codeBackgroundColor = "background-color: #414141;";
 var fontFamily =
-  'font-family: "Cascadia Code", "Consolas", Overpass, "GlowSansSC", "Helvetica Neue", "pingfang sc", "microsoft yahei", sans-serif;';
-for (i = 0; i < 5; i++) {
-  if (i === 4) {
-    // code
-    fields[i].children[1].shadowRoot.children[2].style =
-      fontFamily + codeBackgroundColor;
-  } else {
-    fields[i].children[1].shadowRoot.children[2].style = fontFamily;
-  }
+'font-family: "Cascadia Code", "Consolas", Overpass, "GlowSansSC", "Helvetica Neue", "pingfang sc", "microsoft yahei", sans-serif;';
+if (document.getElementById("fields") === null) {
+    // breaking changes in version 2.1.54
+    var fields = document.getElementsByClassName("fields")[0].children;
+    for (i = 0; i < 5; i++) {
+        var shadowRoot = fields[i].children[0].children[2].children[0].children[0].shadowRoot;
+        if (shadowRoot === null){
+            continue;
+        }
+        if (i === 4) {
+            // code
+            shadowRoot.children[2].style = fontFamily + codeBackgroundColor;
+        } else {
+            shadowRoot.children[2].style = fontFamily;
+        }
+    }
+} else {
+    var fields = document.getElementById("fields").children;
+    for (i = 0; i < 5; i++) {
+        if (i === 4) {
+            // code
+            fields[i].children[1].shadowRoot.children[2].style =
+            fontFamily + codeBackgroundColor;
+        } else {
+            fields[i].children[1].shadowRoot.children[2].style = fontFamily;
+        }
+    }
 }
+
 """
 
 FRONT = """
